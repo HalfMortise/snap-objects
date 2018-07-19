@@ -7,16 +7,24 @@
 class Computer {
 
    /**
+    *id for this computer mac address
+    * @var Integer $computerMacAddress
+    */
+   private $computerMacAddress;
+
+   /**
     *id for this computer model
     * @var String $computerModel
     */
    private $computerModel;
 
    /**
-    *id for this computer mac address
-    * @var Integer $computerMacAddress
+    *Constructor follows, per style guide, in alphabetical order (primary key, foreign key, then alphabetical order)
     */
-   private $computerMacAddress;
+      public function __construct(int $newComputerMacAddress, string $newComputerModel) {
+      $this->setComputerMacAddress($newComputerMacAddress);
+         $this->setComputerModel($newComputerModel);
+      }
 
    /**
     *accessor method for computer model
