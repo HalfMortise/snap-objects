@@ -22,7 +22,7 @@ class Computer {
     *accessor method for computer model
     * @return string value of computer model
     */
-   public function getComputerMOdel() : String {
+   public function getComputerModel() : String {
       return($this->computerModel);
    }
 
@@ -43,5 +43,32 @@ class Computer {
 
       // convert and store the computer model
       $this->computerModel = $string;
+   }
+
+   /**
+    *accessor method for computer mac address
+    * @return integer value of computer mac address
+    */
+   public function getComputerMacAddress() : Int {
+      return($this->computerMacAddress);
+   }
+
+   /**
+    * mutator method for computer mac address
+    *
+    * @param String $newComputerMacAddress new value of computer mac address
+    * @throws \RangeException if $newComputerMacAddress is not unique
+    * @throws \TypeError if $newComputerMacAddress is not an integer
+    **/
+   public function setComputerMacAddress( $newComputerMacAddress) : void {
+      try {
+         $int = self::validateInt($newComputerMacAddress);
+      } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+         $exceptionType = get_class($exception);
+         throw(new $exceptionType($exception->getMessage(), 0, $exception));
+      }
+
+      // convert and store the computer mac address
+      $this->computerMacAddress = $int;
    }
 }
